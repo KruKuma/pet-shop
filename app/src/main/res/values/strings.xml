@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Pet Shop App</string>
+    <string name="welcome_message">Welcome</string>
+    <string name="text_username">Username</string>
+    <string name="text_password">Password</string>
+    <string name="text_login">Login</string>
+    <string name="text_shop">In Store</string>
 </resources>
