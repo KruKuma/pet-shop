@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapter.ItemClickListener {
 
     cardViewRecyclerViewAdapter adapter;
+    Button checkout_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,16 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
         adapter = new cardViewRecyclerViewAdapter(this, itemNames, itemPrices, itemImages);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
+
+        checkout_button = findViewById(R.id.rvCheckoutButton);
+        checkout_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent checkoutPage = new Intent(shop.this, item_basket.class);
+                startActivity(checkoutPage);
+            }
+        });
+
     }
 
     public void onItemClick (View view, int position) {
