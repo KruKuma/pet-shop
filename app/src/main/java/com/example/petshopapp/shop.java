@@ -29,7 +29,7 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
         itemNames.add("Chicken Food");
         itemNames.add("Goose Food");
         itemNames.add("Alpaca Food");
-        itemNames.add("Turkey Food");
+        itemNames.add("Bird Food");
 
         ArrayList<String> itemPrices = new ArrayList<>();
         itemPrices.add("12");
@@ -43,21 +43,23 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
         itemPrices.add("19");
         itemPrices.add("21");
 
-        ArrayList<Integer> animalImages=new ArrayList<Integer>();
+        ArrayList<Integer> itemImages=new ArrayList<Integer>();
 
-        animalImages.add(R.drawable.cow);
-        animalImages.add(R.drawable.dog);
-        animalImages.add(R.drawable.dolphin);
-        animalImages.add(R.drawable.goat);
-        animalImages.add(R.drawable.horse);
-        animalImages.add(R.drawable.rooster);
-        animalImages.add(R.drawable.unicorn);
-        animalImages.add(R.drawable.wolf);
+        itemImages.add(R.drawable.dog_food);
+        itemImages.add(R.drawable.fish_food);
+        itemImages.add(R.drawable.rabbit_food);
+        itemImages.add(R.drawable.mice_food);
+        itemImages.add(R.drawable.duck_food);
+        itemImages.add(R.drawable.cat_food);
+        itemImages.add(R.drawable.chick_food);
+        itemImages.add(R.drawable.goose_food);
+        itemImages.add(R.drawable.alpacas_food);
+        itemImages.add(R.drawable.bird_food);
 
         RecyclerView recyclerView = findViewById(R.id.rvStore);
         recyclerView.setLayoutManager((new LinearLayoutManager(this)));
 
-        adapter = new cardViewRecyclerViewAdapter(this, itemNames, itemPrices, animalImages);
+        adapter = new cardViewRecyclerViewAdapter(this, itemNames, itemPrices, itemImages);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }
