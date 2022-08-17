@@ -43,10 +43,21 @@ public class shop extends AppCompatActivity implements MyRecyclerViewAdapter.Ite
         itemPrices.add("19");
         itemPrices.add("21");
 
+        ArrayList<Integer> animalImages=new ArrayList<Integer>();
+
+        animalImages.add(R.drawable.cow);
+        animalImages.add(R.drawable.dog);
+        animalImages.add(R.drawable.dolphin);
+        animalImages.add(R.drawable.goat);
+        animalImages.add(R.drawable.horse);
+        animalImages.add(R.drawable.rooster);
+        animalImages.add(R.drawable.unicorn);
+        animalImages.add(R.drawable.wolf);
+
         RecyclerView recyclerView = findViewById(R.id.rvStore);
         recyclerView.setLayoutManager((new LinearLayoutManager(this)));
 
-        adapter = new MyRecyclerViewAdapter(this, itemNames, itemPrices);
+        adapter = new MyRecyclerViewAdapter(this, itemNames, itemPrices, animalImages);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }
