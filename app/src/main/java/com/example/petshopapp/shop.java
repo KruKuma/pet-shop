@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class shop extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
+public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapter.ItemClickListener {
 
-    MyRecyclerViewAdapter adapter;
+    cardViewRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class shop extends AppCompatActivity implements MyRecyclerViewAdapter.Ite
         RecyclerView recyclerView = findViewById(R.id.rvStore);
         recyclerView.setLayoutManager((new LinearLayoutManager(this)));
 
-        adapter = new MyRecyclerViewAdapter(this, itemNames, itemPrices, animalImages);
+        adapter = new cardViewRecyclerViewAdapter(this, itemNames, itemPrices, animalImages);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }

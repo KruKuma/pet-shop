@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
+public class cardViewRecyclerViewAdapter extends RecyclerView.Adapter<cardViewRecyclerViewAdapter.ViewHolder> {
 
     private List<String> nData, pData;
     private List<Integer> mImage;
@@ -19,7 +19,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     private LayoutInflater mInflatter;
     private ItemClickListener mClickListener;
 
-    MyRecyclerViewAdapter(shop context, List<String> nData, List<String> pData, List<Integer> image_urls) {
+    cardViewRecyclerViewAdapter(shop context, List<String> nData, List<String> pData, List<Integer> image_urls) {
         this.mInflatter = LayoutInflater.from(context);
         this.nData = nData;
         this.pData = pData;
@@ -38,7 +38,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
     @Override
-    public void onBindViewHolder(MyRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(cardViewRecyclerViewAdapter.ViewHolder holder, int position) {
         String item = nData.get(position);
         String price = pData.get(position);
         Integer image_urls = mImage.get(position);
