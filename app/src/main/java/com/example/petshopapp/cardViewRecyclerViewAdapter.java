@@ -33,7 +33,7 @@ public class cardViewRecyclerViewAdapter extends RecyclerView.Adapter<cardViewRe
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflatter.inflate(R.layout.recyclerview_row, parent, false);
+        View view = mInflatter.inflate(R.layout.cardview_row, parent, false);
         return new ViewHolder(view);
     }
 
@@ -42,7 +42,7 @@ public class cardViewRecyclerViewAdapter extends RecyclerView.Adapter<cardViewRe
         String item = nData.get(position);
         String price = pData.get(position);
         Integer image_urls = mImage.get(position);
-        holder.myTextView.setText(item + "          $" + price);
+        holder.myTextView.setText(item + price);
         holder.myImageView.setImageResource(image_urls);
     }
 
@@ -64,7 +64,7 @@ public class cardViewRecyclerViewAdapter extends RecyclerView.Adapter<cardViewRe
         public ViewHolder(View itemView) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.tvItemName);
-            myImageView = itemView.findViewById(R.id.ivAnimal);
+            myImageView = itemView.findViewById(R.id.ivItem);
             itemView.setOnClickListener(this);
         }
 
