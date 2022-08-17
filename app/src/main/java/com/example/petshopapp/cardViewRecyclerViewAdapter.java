@@ -42,7 +42,8 @@ public class cardViewRecyclerViewAdapter extends RecyclerView.Adapter<cardViewRe
         String item = nData.get(position);
         String price = pData.get(position);
         Integer image_urls = mImage.get(position);
-        holder.myTextView.setText(item + price);
+        holder.myTextViewName.setText(item);
+        holder.myTextViiewPrice.setText("$" + price);
         holder.myImageView.setImageResource(image_urls);
     }
 
@@ -58,12 +59,13 @@ public class cardViewRecyclerViewAdapter extends RecyclerView.Adapter<cardViewRe
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView myTextView;
+        TextView myTextViewName, myTextViiewPrice;
         ImageView myImageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.tvItemName);
+            myTextViewName = itemView.findViewById(R.id.tvItemName);
+            myTextViiewPrice = itemView.findViewById(R.id.tvItemPrice);
             myImageView = itemView.findViewById(R.id.ivItem);
             itemView.setOnClickListener(this);
         }
