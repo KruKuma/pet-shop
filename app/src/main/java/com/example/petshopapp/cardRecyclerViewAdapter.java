@@ -17,7 +17,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     private LayoutInflater mInflatter;
     private ItemClickListener mClickListener;
 
-    MyRecyclerViewAdapter(shop context, List<String> nData, List<String> pData, List<Integer> image_urls) {
+    MyRecyclerViewAdapter(shop context, List<String> nData, List<String> pData, List<String> image_urls) {
         this.mInflatter = LayoutInflater.from(context);
         this.nData = nData;
         this.pData = pData;
