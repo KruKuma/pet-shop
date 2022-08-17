@@ -1,7 +1,7 @@
 package com.example.petshopapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -10,9 +10,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class shop extends AppCompatActivity implements cardRecyclerViewAdapter.ItemClickListener {
+public class shop extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
 
-    cardRecyclerViewAdapter adapter;
+    MyRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +43,10 @@ public class shop extends AppCompatActivity implements cardRecyclerViewAdapter.I
         itemPrices.add("19");
         itemPrices.add("21");
 
-        ArrayList<Integer> itemImageUrls = new ArrayList<>();
-        itemImageUrls.add(R.drawable.cow);
-        itemImageUrls.add(R.drawable.dog);
-        itemImageUrls.add(R.drawable.dolphin);
-        itemImageUrls.add(R.drawable.goat);
-        itemImageUrls.add(R.drawable.horse);
-        itemImageUrls.add(R.drawable.rooster);
-        itemImageUrls.add(R.drawable.unicorn);
-        itemImageUrls.add(R.drawable.wolf);
-
         RecyclerView recyclerView = findViewById(R.id.rvStore);
-        RecyclerView.LayoutManager manager = new GridLayoutManager(this, 2);
-        recyclerView.setLayoutManager(manager);
+        recyclerView.setLayoutManager((new LinearLayoutManager(this)));
 
-        adapter = new cardRecyclerViewAdapter(this, itemNames, itemPrices, itemImageUrls);
+        adapter = new MyRecyclerViewAdapter(this, itemNames, itemPrices);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }

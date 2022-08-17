@@ -4,26 +4,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class cardRecyclerViewAdapter extends RecyclerView.Adapter<cardRecyclerViewAdapter.ViewHolder> {
+public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> nData, pData;
-    private List<Integer> mImage;
+    private List<String> nData, pData, mIamge;
     private Context mContext;
     private LayoutInflater mInflatter;
     private ItemClickListener mClickListener;
 
-    cardRecyclerViewAdapter(shop context, List<String> nData, List<String> pData, List<Integer> image_urls) {
+    MyRecyclerViewAdapter(shop context, List<String> nData, List<String> pData, List<String> image_urls) {
         this.mInflatter = LayoutInflater.from(context);
         this.nData = nData;
         this.pData = pData;
-        this.mImage = image_urls;
+        this.mIamge = image_urls;
         this.mContext = context;
     }
 
@@ -38,12 +36,10 @@ public class cardRecyclerViewAdapter extends RecyclerView.Adapter<cardRecyclerVi
     }
 
     @Override
-    public void onBindViewHolder(cardRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(MyRecyclerViewAdapter.ViewHolder holder, int position) {
         String item = nData.get(position);
         String price = pData.get(position);
-        Integer image_urls = mImage.get(position);
         holder.myTextView.setText(item + "          $" + price);
-        holder.myImageView.setImageResource(image_urls);
     }
 
     @Override
@@ -59,12 +55,10 @@ public class cardRecyclerViewAdapter extends RecyclerView.Adapter<cardRecyclerVi
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView myTextView;
-        ImageView myImageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.tvItemName);
-            myImageView = itemView.findViewById(R.id.ivAnimal);
             itemView.setOnClickListener(this);
         }
 
