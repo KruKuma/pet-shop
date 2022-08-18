@@ -17,7 +17,7 @@
             android:name=".payment"
             android:exported="false" />
         <activity
-            android:name=".item_basket"
+            android:name=".basket"
             android:exported="false" />
         <activity
             android:name=".shop"

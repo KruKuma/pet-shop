@@ -6,8 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -80,7 +78,7 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
         checkout_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent checkoutPage = new Intent(shop.this, item_basket.class);
+                Intent checkoutPage = new Intent(shop.this, basket.class);
                 startActivity(checkoutPage);
             }
         });
