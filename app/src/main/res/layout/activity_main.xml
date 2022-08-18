@@ -74,14 +74,14 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="351dp"
-        android:layout_height="65dp"
+        android:layout_width="251dp"
+        android:layout_height="wrap_content"
         android:text="Welcome to our pet shop. Here you can buy food for animals."
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.167" />
+        app:layout_constraintVertical_bias="0.191" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
