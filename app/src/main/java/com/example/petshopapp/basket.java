@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -18,6 +20,7 @@ import java.util.HashMap;
 public class basket extends AppCompatActivity {
 
     TextView totalPrice;
+    Button purchaseButton;
 
     private int sumPrice;
 
@@ -44,7 +47,14 @@ public class basket extends AppCompatActivity {
         totalPrice = (TextView) findViewById(R.id.tvTotalPrice);
         totalPrice.setText("$" + Integer.toString(sumPrice));
 
-        
+        purchaseButton = findViewById(R.id.purchase_button);
+        purchaseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent paymentPage = new Intent(basket.this, payment.class);
+                startActivity(paymentPage);
+            }
+        });
 
     }
 }
