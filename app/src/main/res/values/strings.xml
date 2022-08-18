@@ -9,4 +9,6 @@
     <string name="text_checkout">Checkout</string>
     <string name="text_card_name">Card Owner Name</string>
     <string name="label_card_number">Valid Card Number</string>
+    <string name="text_addTo">Add to Basket</string>
+    <string name="text_removeFrom">Remove From Basket</string>
 </resources>

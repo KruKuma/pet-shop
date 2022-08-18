@@ -6,8 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -78,7 +82,22 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
     }
 
     public void onItemClick (View view, int position) {
-        Toast.makeText(this, "You Click" + adapter.getItem(position) +
-                " on row number " + position, Toast.LENGTH_SHORT).show();
+        PopupMenu popup = new PopupMenu(shop.this, view);
+        popup.setOnMenuItemClickListener(shop.this::onMenuItemClick);
+        popup.inflate(R.menu.shop_popup_menu);
+        popup.show();
+    }
+
+    public boolean onMenuItemClick(MenuItem item) {
+        Toast.makeText(this, "Add item to basket" + item.getItemId(), Toast.LENGTH_LONG).show();
+        switch (item.getItemId()) {
+            case R.id.omAddToBasket:
+                return true;
+            case R.id.omRemoveFromBasket:
+                return true;
+            default:
+                return true;
+
+        }
     }
 }
