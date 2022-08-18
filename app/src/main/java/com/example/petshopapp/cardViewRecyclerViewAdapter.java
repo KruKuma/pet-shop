@@ -13,13 +13,13 @@ import java.util.List;
 
 public class cardViewRecyclerViewAdapter extends RecyclerView.Adapter<cardViewRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> nData, pData;
-    private List<Integer> mImage;
+    private List<String> nData;
+    private List<Integer> mImage, pData;
     private Context mContext;
     private LayoutInflater mInflatter;
     private ItemClickListener mClickListener;
 
-    cardViewRecyclerViewAdapter(shop context, List<String> nData, List<String> pData, List<Integer> image_urls) {
+    cardViewRecyclerViewAdapter(shop context, List<String> nData, List<Integer> pData, List<Integer> image_urls) {
         this.mInflatter = LayoutInflater.from(context);
         this.nData = nData;
         this.pData = pData;
@@ -40,7 +40,7 @@ public class cardViewRecyclerViewAdapter extends RecyclerView.Adapter<cardViewRe
     @Override
     public void onBindViewHolder(cardViewRecyclerViewAdapter.ViewHolder holder, int position) {
         String item = nData.get(position);
-        String price = pData.get(position);
+        int price = pData.get(position);
         Integer image_urls = mImage.get(position);
         holder.myTextViewName.setText(item);
         holder.myTextViiewPrice.setText("$" + price);
@@ -51,11 +51,6 @@ public class cardViewRecyclerViewAdapter extends RecyclerView.Adapter<cardViewRe
     public int getItemCount() {
         return nData.size();
     }
-
-    String getItem(int id) {
-        return nData.get(id);
-    }
-    String getPrice(int id) { return pData.get(id); }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

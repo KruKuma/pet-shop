@@ -18,15 +18,20 @@ import java.util.ArrayList;
 
 public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapter.ItemClickListener {
 
+    private int itemPosition, counter = 0;
+
     cardViewRecyclerViewAdapter adapter;
     Button checkout_button;
+
+    ArrayList<Integer> itemImages = new ArrayList<Integer>();
+    ArrayList<Integer> itemPrices = new ArrayList<>();
+    ArrayList<String> itemNames = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop);
 
-        ArrayList<String> itemNames = new ArrayList<>();
         itemNames.add("Dog Food");
         itemNames.add("Fish Food");
         itemNames.add("Rabbit Food");
@@ -38,19 +43,16 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
         itemNames.add("Alpaca Food");
         itemNames.add("Bird Food");
 
-        ArrayList<String> itemPrices = new ArrayList<>();
-        itemPrices.add("12");
-        itemPrices.add("13");
-        itemPrices.add("11");
-        itemPrices.add("16");
-        itemPrices.add("17");
-        itemPrices.add("15");
-        itemPrices.add("14");
-        itemPrices.add("18");
-        itemPrices.add("19");
-        itemPrices.add("21");
-
-        ArrayList<Integer> itemImages=new ArrayList<Integer>();
+        itemPrices.add(12);
+        itemPrices.add(14);
+        itemPrices.add(25);
+        itemPrices.add(23);
+        itemPrices.add(24);
+        itemPrices.add(26);
+        itemPrices.add(19);
+        itemPrices.add(18);
+        itemPrices.add(32);
+        itemPrices.add(11);
 
         itemImages.add(R.drawable.dog_food);
         itemImages.add(R.drawable.fish_food);
@@ -82,6 +84,7 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
     }
 
     public void onItemClick (View view, int position) {
+        itemPosition = position;
         PopupMenu popup = new PopupMenu(shop.this, view);
         popup.setOnMenuItemClickListener(shop.this::onMenuItemClick);
         popup.inflate(R.menu.shop_popup_menu);
@@ -89,15 +92,26 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
     }
 
     public boolean onMenuItemClick(MenuItem item) {
-        Toast.makeText(this, "Add item to basket" + item.getItemId(), Toast.LENGTH_LONG).show();
         switch (item.getItemId()) {
             case R.id.omAddToBasket:
+                addItemToBasket();
+                counter++;
                 return true;
             case R.id.omRemoveFromBasket:
+                Toast.makeText(this, "Click on Remove" + item.getItemId(), Toast.LENGTH_LONG).show();
                 return true;
             default:
-                return true;
+                return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    private void addItemToBasket() {
+        String itemName = itemNames.get(itemPosition);
+        int price = itemPrices.get(itemPosition);
+        basket_dbHandler dbHandler = new basket_dbHandler(shop.this);
+        dbHandler.insertBasketItem(itemName, price);
+
+        Toast.makeText(this, itemName + " Has been added to Basket", Toast.LENGTH_SHORT).show();
     }
 }

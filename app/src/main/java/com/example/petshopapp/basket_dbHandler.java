@@ -60,7 +60,7 @@ public class basket_dbHandler extends SQLiteOpenHelper {
 
         String query = "SELECT name, price FROM " + TABLE_Items;
         Cursor cursor = db.rawQuery(query, null);
-        
+
         while (cursor.moveToNext()) {
             HashMap<String,String> item = new HashMap<>();
             item.put("name", cursor.getString(cursor.getColumnIndex(KEY_NAME)));
