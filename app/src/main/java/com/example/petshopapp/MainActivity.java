@@ -39,20 +39,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("Login Button Clicked");
+
                 signIn(username.getText().toString(), password.getText().toString());
+
 
             }
         });
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            reload();
-        }
-
     }
 
     private void signIn(String username, String password) {
@@ -60,29 +52,21 @@ public class MainActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
 
                             Intent userHome = new Intent(MainActivity.this, shop.class);
                             startActivity(userHome);
 
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed!",
+                            Toast.makeText(MainActivity.this, "Incorrect username and password",
                                     Toast.LENGTH_SHORT).show();
 
-                        }
+                            }
+
                     }
                 });
-    }
-
-    private void reload() {
-
-    }
-
-    private void updateUI(FirebaseUser user) {
-
     }
 }
