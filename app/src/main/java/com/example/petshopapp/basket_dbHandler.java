@@ -88,4 +88,10 @@ public class basket_dbHandler extends SQLiteOpenHelper {
 
         return priceList;
     }
+
+    public void ResetDatabase() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String clearDBQuery = "DELETE FROM " + TABLE_Items;
+        db.execSQL(clearDBQuery);
+    }
 }
