@@ -101,9 +101,6 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
                 basket_count.setVisibility(View.VISIBLE);
                 basket_count.setText("Basket: " + Integer.toString(counter));
                 return true;
-            case R.id.omRemoveFromBasket:
-                Toast.makeText(this, "Click on Remove" + item.getItemId(), Toast.LENGTH_LONG).show();
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
 

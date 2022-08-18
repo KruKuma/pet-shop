@@ -2,6 +2,4 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/omAddToBasket"
         android:title="@string/text_addTo" />
-    <item android:id="@+id/omRemoveFromBasket"
-        android:title="@string/text_removeFrom" />
 </menu>
