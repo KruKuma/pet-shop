@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
 
     cardViewRecyclerViewAdapter adapter;
     Button checkout_button;
+    TextView basket_count;
 
     ArrayList<Integer> itemImages = new ArrayList<Integer>();
     ArrayList<Integer> itemPrices = new ArrayList<>();
@@ -72,6 +74,8 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
 
+        basket_count = (TextView)findViewById(R.id.itemCount);
+
         checkout_button = findViewById(R.id.rvCheckoutButton);
         checkout_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +100,8 @@ public class shop extends AppCompatActivity implements cardViewRecyclerViewAdapt
             case R.id.omAddToBasket:
                 addItemToBasket();
                 counter++;
+                basket_count.setVisibility(View.VISIBLE);
+                basket_count.setText("Basket: " + Integer.toString(counter));
                 return true;
             case R.id.omRemoveFromBasket:
                 Toast.makeText(this, "Click on Remove" + item.getItemId(), Toast.LENGTH_LONG).show();
