@@ -1,5 +1,6 @@
 package com.example.petshopapp;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -8,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class basket_dbHandler extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
@@ -54,6 +56,7 @@ public class basket_dbHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    @SuppressLint("Range")
     public ArrayList<HashMap<String, String>> GetItems() {
         SQLiteDatabase db = this.getWritableDatabase();
         ArrayList<HashMap<String, String>> itemList = new ArrayList<>();
@@ -69,5 +72,20 @@ public class basket_dbHandler extends SQLiteOpenHelper {
         }
 
         return itemList;
+    }
+
+    @SuppressLint("Range")
+    public ArrayList<Integer> getPrices() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<Integer> priceList = new ArrayList<>();
+
+        String query = "SELECT price FROM " + TABLE_Items;
+        Cursor cursor = db.rawQuery(query, null);
+
+        while (cursor.moveToNext()) {
+            priceList.add(cursor.getInt(cursor.getColumnIndex(KEY_PRICE)));
+        }
+
+        return priceList;
     }
 }

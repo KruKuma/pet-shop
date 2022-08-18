@@ -17,6 +17,10 @@ import java.util.HashMap;
 
 public class basket extends AppCompatActivity {
 
+    TextView totalPrice;
+
+    private int sumPrice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +35,16 @@ public class basket extends AppCompatActivity {
 
         lv.setAdapter(adapter);
 
+        ArrayList<Integer> priceList = db.getPrices();
+
+        for (int number : priceList) {
+            sumPrice += number;
+        }
+
+        totalPrice = (TextView) findViewById(R.id.tvTotalPrice);
+        totalPrice.setText("$" + Integer.toString(sumPrice));
+
+        
 
     }
 }
